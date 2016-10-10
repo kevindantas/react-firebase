@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as firebase from 'firebase';
 
 
@@ -55,55 +54,50 @@ class Auth extends Component {
 		}
 
 		return (
-			<MuiThemeProvider>
-				<Card style={styles} className="Auth">
-					<CardTitle title="Login" />
+			<Card style={styles} className="Auth">
+				<CardTitle title="Login" />
 
-					<CardText>
-						<form>
-							<TextField 
-								required={true}
-								fullWidth={true}
-								floatingLabelText="Email" />
-							<TextField 
-								type="password"
-								required={true}
-								fullWidth={true}
-								floatingLabelText="Senha: " />
+				<CardText>
+					<form>
+						<TextField 
+							required={true}
+							fullWidth={true}
+							floatingLabelText="Email" />
+						<TextField 
+							type="password"
+							required={true}
+							fullWidth={true}
+							floatingLabelText="Senha: " />
 
-							<RaisedButton primary={true} label="Login" />
+						<RaisedButton primary={true} label="Login" />
 
-							<p className="divider"> ou use alguma rede social </p>
+						<p className="divider"> ou use alguma rede social </p>
 
-							<FacebookButton 
-								fullWidth={true} 
-								className="social-button"
-								buttonStyle={socialButton}  
-								label="Logar com o Facebook" 
-								onClick={this.handleFacebookAuth.bind(this)} />
+						<FacebookButton 
+							fullWidth={true} 
+							className="social-button"
+							buttonStyle={socialButton}  
+							label="Logar com o Facebook" 
+							onClick={this.handleFacebookAuth.bind(this)} />
 
+						<GithubButton 
+							fullWidth={true} 
+							className="social-button github-button"
+							buttonStyle={socialButton}  
+							label="Logar com o Github" 
+							onClick={this.handleGithubAuth.bind(this)} />
 
-							<GithubButton 
-								fullWidth={true} 
-								className="social-button github-button"
-								buttonStyle={socialButton}  
-								label="Logar com o Github" 
-								onClick={this.handleGithubAuth.bind(this)} />
+						<GoogleButton 
+							fullWidth={true} 
+							className="social-button"
+							buttonStyle={socialButton}  
+							label="Logar com o Google" 
+							onClick={this.handleGoogleAuth.bind(this)} />
 
+					</form>
+				</CardText>
 
-							<GoogleButton 
-								fullWidth={true} 
-								className="social-button"
-								buttonStyle={socialButton}  
-								label="Logar com o Google" 
-								onClick={this.handleGoogleAuth.bind(this)} />
-
-
-						</form>
-					</CardText>
-
-				</Card>
-			</MuiThemeProvider>
+			</Card>
 		);
 	}
 }
