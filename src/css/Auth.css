@@ -1,0 +1,31 @@
+.LayoutAuth  {
+	min-height: 100vh;
+	background: #455A64;
+}
+
+
+.Auth {
+	text-align: center;
+}
+
+.Auth .divider {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.Auth .social-button, .Auth .social-button > button {
+	border-radius: 1000px !important; 
+	overflow: hidden;
+}
+
+.Auth .social-button > button > div > div {
+	height: 60px !important;
+	border-radius: 1000px;
+	padding-top: 13px;
+	color: #333 !important;
+}
+
+
+.Auth .social-button.github-button button > div > div > span {
+	color: #333 !important;
+}

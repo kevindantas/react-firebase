@@ -5,6 +5,7 @@ import { Router, IndexRoute, Route, browserHistory } from 'react-router';
 
 import App from './App';
 import Auth from './components/Auth';
+import LayoutAuth from './components/layouts/LayoutAuth';
 import './index.css';
 
 var config = {
@@ -21,7 +22,10 @@ ReactDOM.render(
   <Router history={browserHistory}>
   	<Route path="/" component={App}>
   	</Route>
-  	<Route path="/auth" component={Auth} />
+
+    <Route path="/auth" component={LayoutAuth}>
+  	 <IndexRoute component={Auth} />
+    </Route>
   </Router>,
   document.getElementById('root')
 );

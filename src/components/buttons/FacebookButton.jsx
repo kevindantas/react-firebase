@@ -51,10 +51,12 @@ export default class FacebookButton extends Component {
 	render () {
 		const buttonStyles = {
 			margin: '8px 0',
+			borderRadius: 1000,
+			overflow: 'hidden',
 			background: 'transparent'
 		}
 		return (
-			<RaisedButton {...this.props} icon={<FacebookIcon />} className="button" primary={true} style={buttonStyles} />
+			<RaisedButton {...this.props} icon={<FacebookIcon />} primary={true} style={buttonStyles} />
 		);
 	}
 }

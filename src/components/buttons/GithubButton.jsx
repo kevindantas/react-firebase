@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import GithubIcon from '../icons/GithubIcon';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 /**
  * Button with the color and icon from Google
@@ -17,6 +18,32 @@ export default class GithubButton extends Component {
 		label: PropTypes.string.isRequired
 	}
 
+
+	/**
+	 * Define child context
+	 * @type {Object}
+	 */
+	static childContextTypes = {
+		muiTheme: PropTypes.object.isRequired
+	}
+
+
+	/**
+	 * Get child context
+	 * @return {[type]} [description]
+	 */
+	getChildContext () {
+		return {
+			muiTheme: getMuiTheme({
+				palette: {
+					primary1Color: '#fff',
+					alternateTextColor: '#bbb'
+				}
+			})
+		}
+	}
+
+
 	
 	/**
 	 * Render Component
@@ -28,7 +55,7 @@ export default class GithubButton extends Component {
 			background: 'transparent'
 		}
 		return (
-			<RaisedButton {...this.props} icon={<GithubIcon />} style={buttonStyles} />
+			<RaisedButton {...this.props} icon={<GithubIcon />} primary={true} style={buttonStyles} />
 		);
 	}
 }

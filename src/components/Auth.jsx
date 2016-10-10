@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -16,9 +16,15 @@ class Auth extends Component {
 			margin: 'auto'
 		};
 
+
+		const socialButton = {
+			height: 60,
+			borderRadius: 30
+		}
+
 		return (
 			<MuiThemeProvider>
-				<Card style={styles}>
+				<Card style={styles} className="Auth">
 					<CardTitle title="Login" />
 
 					<CardText>
@@ -32,17 +38,35 @@ class Auth extends Component {
 								required={true}
 								fullWidth={true}
 								floatingLabelText="Senha: " />
+
 							<RaisedButton primary={true} label="Login" />
 
-							<FacebookButton label="Logar com o Facebook" />
-							<GithubButton label="Logar com o Github" />
-							<GoogleButton label="Logar com o Google" />
+							<p className="divider"> ou use alguma rede social </p>
+
+							<FacebookButton 
+								label="Logar com o Facebook" 
+								fullWidth={true} 
+								className="social-button"
+								buttonStyle={socialButton}  />
+
+
+							<GithubButton 
+								label="Logar com o Github" 
+								fullWidth={true} 
+								className="social-button github-button"
+								buttonStyle={socialButton}  />
+
+
+							<GoogleButton 
+								label="Logar com o Google" 
+								fullWidth={true} 
+								className="social-button"
+								buttonStyle={socialButton}  />
+
+
 						</form>
 					</CardText>
 
-					<CardActions>
-						
-					</CardActions>
 				</Card>
 			</MuiThemeProvider>
 		);
