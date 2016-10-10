@@ -6,6 +6,9 @@
 
 .Auth {
 	text-align: center;
+	display: inline-block;
+	margin-top: 90px !important;
+	margin-left: calc(50vw - 250px) !important;
 }
 
 .Auth .divider {

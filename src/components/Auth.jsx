@@ -3,6 +3,7 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import * as firebase from 'firebase';
 
 
 import FacebookButton from './buttons/FacebookButton';
@@ -10,6 +11,37 @@ import GithubButton from './buttons/GithubButton';
 import GoogleButton from './buttons/GoogleButton';
 
 class Auth extends Component {
+
+
+	handleGithubAuth() {
+		var githubProvider = new firebase.auth.GithubAuthProvider();
+
+		firebase.auth().signInWithPopup(githubProvider)
+			.then(response => {
+				console.log(response)
+			})
+	}
+
+
+	handleGoogleAuth() {
+		var GoogleProvider = new firebase.auth.GoogleAuthProvider();
+
+		firebase.auth().signInWithPopup(GoogleProvider)
+			.then(response => {
+				console.log(response)
+			})
+	}
+
+	handleFacebookAuth() {
+		var facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+		firebase.auth().signInWithPopup(facebookProvider)
+			.then(response => {
+				console.log(response)
+			})
+	}
+
+
 	render() {
 		const styles = {
 			width: 500,
@@ -44,24 +76,27 @@ class Auth extends Component {
 							<p className="divider"> ou use alguma rede social </p>
 
 							<FacebookButton 
-								label="Logar com o Facebook" 
 								fullWidth={true} 
 								className="social-button"
-								buttonStyle={socialButton}  />
+								buttonStyle={socialButton}  
+								label="Logar com o Facebook" 
+								onClick={this.handleFacebookAuth.bind(this)} />
 
 
 							<GithubButton 
-								label="Logar com o Github" 
 								fullWidth={true} 
 								className="social-button github-button"
-								buttonStyle={socialButton}  />
+								buttonStyle={socialButton}  
+								label="Logar com o Github" 
+								onClick={this.handleGithubAuth.bind(this)} />
 
 
 							<GoogleButton 
-								label="Logar com o Google" 
 								fullWidth={true} 
 								className="social-button"
-								buttonStyle={socialButton}  />
+								buttonStyle={socialButton}  
+								label="Logar com o Google" 
+								onClick={this.handleGoogleAuth.bind(this)} />
 
 
 						</form>
