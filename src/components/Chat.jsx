@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import SendMessage from './SendMessage';
 import ChatMessage from './ChatMessage';
 
+import '../css/Chat.css';
+
 class Chat extends Component {
 
 	state = {
@@ -43,16 +45,16 @@ class Chat extends Component {
 
 	handleSend(value) {
 		var currentUser = firebase.auth().currentUser;
+		console.log(firebase.auth());
 		var message = {
 			author: {
-				uid: currentUser.uid,
 				name: currentUser.displayName,
 				email: currentUser.email
 			},
 			message: value,
 			createdAt: new Date().toISOString()
 		}
-
+		console.log(message);
 		this.messagesRef.push().set(message);
 	}
 
@@ -85,10 +87,11 @@ class Chat extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="Chat">
 				{ this.renderLoading() }
-
-				{ this.renderMessages() }
+				<div className="ChatContent">
+					{ this.renderMessages() }
+				</div>
 				<SendMessage onSend={this.handleSend.bind(this)} />
 			</div>
 		);
