@@ -47,10 +47,6 @@ export default class GoogleButton extends Component {
 	 * @return {opbject} Rendered Component
 	 */
 	render () {
-		const buttonStyles = {
-			margin: '8px 0',
-			background: 'transparent'
-		}
 		return (
 			<RaisedButton {...this.props} icon={<GoogleIcon />} primary={true} style={this.buttonStyles} /> 
 		);
