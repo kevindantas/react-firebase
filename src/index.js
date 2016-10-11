@@ -7,10 +7,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import App from './App';
-import Auth from './components/Auth';
-import Chat from './components/Chat';
 import LayoutAuth from './components/layouts/LayoutAuth';
 import Layout from './components/layouts/Layout';
+
+import Auth from './components/Auth';
+import Chat from './components/Chat';
+import Account from './components/Account';
+
 import './index.css';
 
 var config = {
@@ -25,15 +28,15 @@ firebase.initializeApp(config);
 
 ReactDOM.render(
   <Router history={browserHistory}>
-  	<Route path="/" component={App}>
-  	</Route>
+    <Route path="/" component={App} />
 
     <Route path="/auth" component={LayoutAuth}>
-    	 <IndexRoute component={Auth} />
+       <IndexRoute component={Auth} />
     </Route>
 
-    <Route path="/chat" component={Layout}>
-      <IndexRoute component={Chat} />
+    <Route path="/" component={Layout}>
+      <Route path="chat" component={Chat} />
+      <Route path="account" component={Account} />
     </Route>
   </Router>,
   document.getElementById('root')
