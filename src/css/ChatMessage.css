@@ -35,3 +35,19 @@
 	right: -0px;
 	transform: skewX(-50deg);
 }
+
+
+.ChatMessage p {
+	margin: 0;
+}
+
+.ChatMessage .author {
+	opacity: 0.3;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.ChatMessage.ownMessage .author {
+	display: none;
+	
+}

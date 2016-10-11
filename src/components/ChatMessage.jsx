@@ -9,9 +9,8 @@ class ChatMessage extends Component {
 		const classes = 'ownMessage'
 		return (
 			<div className={`ChatMessage ${classes}`}>
-				<p> { this.props.message } </p>
-				
 				<span className="author"> { this.props.author } </span>
+				<p> { this.props.message } </p>
 			</div>
 		);
 	}

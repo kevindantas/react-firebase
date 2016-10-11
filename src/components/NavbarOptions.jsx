@@ -3,6 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { Link } from 'react-router';
 
 const NavbarOptions = (props) => (
 	<IconMenu
@@ -13,7 +14,10 @@ const NavbarOptions = (props) => (
 			<IconButton> <MoreVertIcon color="#fff" /> </IconButton> 
 		}>
 
-		<MenuItem primaryText="Minha conta" /> 
+		<Link to="/account" className="OptionMenu" activeClassName="isActive"> 
+			<MenuItem primaryText="Minha conta" /> 
+		</Link>
+
 		<MenuItem primaryText="Logout" /> 
 
 	</IconMenu>

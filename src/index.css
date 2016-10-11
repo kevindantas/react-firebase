@@ -10,6 +10,9 @@ object[type="application/gas-events-uni"] {
 	display: none;
 }
 
+a {
+	text-decoration: none;
+}
 
 .textCenter {
 	text-align: center;

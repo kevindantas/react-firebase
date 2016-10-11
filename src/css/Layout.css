@@ -5,3 +5,13 @@
 .Layout main {
 	padding-top: 30px;
 }
+
+.MenuItem {
+	text-decoration: none;
+	display: block;
+}
+
+.MenuItem.isActive {
+	font-weight: bold;
+	background: rgba(0,0,0,.1);
+}
