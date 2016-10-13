@@ -1,9 +1,19 @@
 .Layout {
-	background: '#eee',
+	background: '#eee';
 }
 
 .Layout main {
 	padding-top: 30px;
+	max-width: 740px;
+	margin: auto;
+	display: flex;
+	position: relative;
+	/* 94px = AppBar(64px) + paddingTop(30px) */
+	min-height: calc(100vh - 94px);
+}
+
+.Layout main div {
+	flex: 1 100%;
 }
 
 .MenuItem {

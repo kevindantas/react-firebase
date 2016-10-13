@@ -13,6 +13,7 @@ import Layout from './components/layouts/Layout';
 import Auth from './components/Auth';
 import Chat from './components/Chat';
 import Account from './components/Account';
+import NotFound from './components/NotFound';
 
 import './index.css';
 
@@ -34,10 +35,12 @@ ReactDOM.render(
        <IndexRoute component={Auth} />
     </Route>
 
-    <Route path="/" component={Layout}>
-      <Route path="chat" component={Chat} />
+    <Route path="/" component={Layout} title="dawdaw" >
+      <Route path="chat" component={Chat} title="dawdaw" />
       <Route path="account" component={Account} />
     </Route>
+
+    <Route path="*" component={NotFound} />
   </Router>,
   document.getElementById('root')
 );
