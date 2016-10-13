@@ -32,3 +32,8 @@
 .Auth .social-button.github-button button > div > div > span {
 	color: #333 !important;
 }
+
+
+.Auth .error {
+	color: #F44336;
+}

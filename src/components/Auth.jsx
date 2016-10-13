@@ -10,37 +10,72 @@ import GithubButton from './buttons/GithubButton';
 import GoogleButton from './buttons/GoogleButton';
 
 class Auth extends Component {
+	
+	state = {
+		error: null
+	}
 
 
+	/**
+	 * Handle errors from all Auth Providers
+	 * 
+	 * @param  {object} e Error
+	 */
+	handleError(e) {
+		console.log(e);
+		var message;
+		if(e.code == 'auth/account-exists-with-different-credential') {
+			message = `O email "${e.email}" já está sendo usado, você pode logar com sua conta e associar as redes sociais`;
+			this.setState({
+				error: message
+			})
+		}
+	}
+
+
+	/**
+	 * Login with Github Provider
+	 */
 	handleGithubAuth() {
 		var githubProvider = new firebase.auth.GithubAuthProvider();
 
 		firebase.auth().signInWithPopup(githubProvider)
 			.then(response => {
-				console.log(response)
+				this.props.history.push('/chat');
 			})
+			.catch(e => this.handleError(e))
 	}
 
-
+	/**
+	 * Login with Google Provider
+	 */
 	handleGoogleAuth() {
 		var GoogleProvider = new firebase.auth.GoogleAuthProvider();
 
 		firebase.auth().signInWithPopup(GoogleProvider)
 			.then(response => {
-				console.log(response)
+				this.props.history.push('/chat');
 			})
+			.catch(e => this.handleError(e))
 	}
 
+	/**
+	 * Login with Facebook Provider
+	 */
 	handleFacebookAuth() {
 		var facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 		firebase.auth().signInWithPopup(facebookProvider)
 			.then(response => {
-				console.log(response)
+				this.props.history.push('/chat');
 			})
+			.catch(e => this.handleError(e))
 	}
 
 
+	/**
+	 * Render the component
+	 */
 	render() {
 		const styles = {
 			width: 500,
@@ -72,6 +107,8 @@ class Auth extends Component {
 						<RaisedButton primary={true} label="Login" />
 
 						<p className="divider"> ou use alguma rede social </p>
+
+						<p className="error"> { this.state.error } </p>
 
 						<FacebookButton 
 							fullWidth={true} 
