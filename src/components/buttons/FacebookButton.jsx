@@ -49,12 +49,10 @@ export default class FacebookButton extends Component {
 	 * @return {opbject} Rendered Component
 	 */
 	render () {
-		const buttonStyles = {
+		const buttonStyles =  Object.assign({
 			margin: '8px 0',
-			borderRadius: 1000,
-			overflow: 'hidden',
-			background: 'transparent'
-		}
+			background: 'transparent',
+		}, this.props.style);
 		return (
 			<RaisedButton {...this.props} icon={<FacebookIcon />} primary={true} style={buttonStyles} />
 		);

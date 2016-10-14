@@ -50,10 +50,10 @@ export default class GithubButton extends Component {
 	 * @return {opbject} Rendered Component
 	 */
 	render () {
-		const buttonStyles = {
+		const buttonStyles =  Object.assign({
 			margin: '8px 0',
-			background: 'transparent'
-		}
+			background: 'transparent',
+		}, this.props.style)
 		return (
 			<RaisedButton {...this.props} icon={<GithubIcon />} primary={true} style={buttonStyles} />
 		);
