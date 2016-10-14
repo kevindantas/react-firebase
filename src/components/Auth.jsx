@@ -22,7 +22,6 @@ class Auth extends Component {
 	 * @param  {object} e Error
 	 */
 	handleError(e) {
-		console.log(e);
 		var message;
 		if(e.code == 'auth/account-exists-with-different-credential') {
 			message = `O email "${e.email}" já está sendo usado, você pode logar com sua conta e associar as redes sociais`;
@@ -39,9 +38,10 @@ class Auth extends Component {
 	handleGithubAuth() {
 		var githubProvider = new firebase.auth.GithubAuthProvider();
 
-		firebase.auth().signInWithPopup(githubProvider)
+		return firebase.auth().signInWithPopup(githubProvider)
 			.then(response => {
 				this.props.history.push('/chat');
+				return response;
 			})
 			.catch(e => this.handleError(e))
 	}
@@ -52,9 +52,10 @@ class Auth extends Component {
 	handleGoogleAuth() {
 		var GoogleProvider = new firebase.auth.GoogleAuthProvider();
 
-		firebase.auth().signInWithPopup(GoogleProvider)
+		return firebase.auth().signInWithPopup(GoogleProvider)
 			.then(response => {
 				this.props.history.push('/chat');
+				return response;
 			})
 			.catch(e => this.handleError(e))
 	}
@@ -65,9 +66,10 @@ class Auth extends Component {
 	handleFacebookAuth() {
 		var facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-		firebase.auth().signInWithPopup(facebookProvider)
+		return firebase.auth().signInWithPopup(facebookProvider)
 			.then(response => {
 				this.props.history.push('/chat');
+				return response;
 			})
 			.catch(e => this.handleError(e))
 	}

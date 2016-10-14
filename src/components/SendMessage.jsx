@@ -36,7 +36,7 @@ class SendMessage extends Component {
 			background: '#eee',
 			maxWidth: '100vw',
 			overflow: 'hidden',
-			position: 'fixed',
+			position: 'absolute',
 			bottom: 0,
 			left: 0, 
 			right: 0
@@ -58,7 +58,7 @@ class SendMessage extends Component {
 			background: '#8BC34A',
 			position: 'absolute',
 			borderRadius: 1000,
-			right: 0
+			right: 16
 		}
 
 		return (

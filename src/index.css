@@ -15,6 +15,38 @@ a {
 	text-decoration: none;
 }
 
+fieldset {
+	border: none;
+	padding: 8px;
+}
+legend {
+	margin: 0px;
+	padding-top: 16px;
+}
+
+legend > * {
+	margin-bottom: 0;
+}
+
 .textCenter {
 	text-align: center;
+}
+
+
+.social-button, .social-button > button {
+	border-radius: 1000px !important; 
+	overflow: hidden;
+}
+
+.social-button > button > div > div {
+	height: 60px !important;
+	border-radius: 1000px;
+	padding-top: 13px;
+	color: #333 !important;
+	padding-left: 8px;
+}
+
+
+.social-button.github-button button > div > div > span {
+	color: #333 !important;
 }
